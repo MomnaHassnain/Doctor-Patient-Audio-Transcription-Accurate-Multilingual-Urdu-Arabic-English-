@@ -5,7 +5,7 @@ import whisper
 import google.generativeai as genai
 
 # Load API key from .env
-load_dotenv()
+#load_dotenv()
 GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
 
 # Configure Gemini
