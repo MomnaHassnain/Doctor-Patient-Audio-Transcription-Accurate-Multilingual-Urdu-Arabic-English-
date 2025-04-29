@@ -5,15 +5,16 @@ from dotenv import load_dotenv
 import whisper
 import google.generativeai as genai
 
-# Load API key from .env
-GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+# Ensure that the key is in your secrets file
+GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", "default_value_if_missing")
 
-
-# Configure Gemini
-if not GEMINI_API_KEY:
-    st.error("❌ Gemini API key missing in .env file!")
+if GEMINI_API_KEY == "default_value_if_missing":
+    st.error("❌ Gemini API key is missing!")
 else:
     genai.configure(api_key=GEMINI_API_KEY)
+
+
+# Load API key from .env
 
 # UI config
 st.set_page_config(page_title="Doctor-Patient Audio Assistant", layout="wide")
