@@ -3,3 +3,6 @@ google-generativeai
 python-dotenv
 openai-whisper
 ffmpeg
+pandas
+scikit-learn
+matplotlib
