@@ -6,3 +6,5 @@ ffmpeg
 pandas
 scikit-learn
 matplotlib
+ffmpeg-python
+
