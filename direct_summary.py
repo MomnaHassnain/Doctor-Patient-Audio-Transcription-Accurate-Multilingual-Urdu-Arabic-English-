@@ -5,6 +5,9 @@ from dotenv import load_dotenv
 import whisper
 import google.generativeai as genai
 
+st.write("From main page ")
+
+
 # Ensure that the key is in your secrets file
 GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", "default_value_if_missing")
 
