@@ -1,9 +1,15 @@
-import asyncio
 import os
-import streamlit as st
-from dotenv import load_dotenv
 import whisper
+import streamlit as st
 import google.generativeai as genai
+from dotenv import load_dotenv
+
+# ✅ SET PAGE CONFIG — place this right after imports
+st.set_page_config(page_title="Doctor-Patient Audio Assistant", layout="wide")
+st.title("🩺 Doctor-Patient Audio Assistant")
+
+# 👇 everything else can follow after this
+load_dotenv()
 
 st.write("From main page ")
 
@@ -20,8 +26,7 @@ st.write(f"GEMINI API KEY:{GEMINI_API_KEY}")
 # Load API key from .env
 
 # UI config
-st.set_page_config(page_title="Doctor-Patient Audio Assistant", layout="wide")
-st.title("🩺 Doctor-Patient Audio Assistant")
+
 
 # Load Whisper model
 @st.cache_resource
