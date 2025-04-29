@@ -14,14 +14,10 @@ load_dotenv()
 st.write("From main page ")
 
 
-# Ensure that the key is in your secrets file
-GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", "default_value_if_missing")
-
-if GEMINI_API_KEY == "default_value_if_missing":
-    st.error("❌ Gemini API key is missing!")
-else:
-    genai.configure(api_key=GEMINI_API_KEY)
-st.write(f"GEMINI API KEY:{GEMINI_API_KEY}")
+# ✅ Directly assign Gemini API Key
+GEMINI_API_KEY = "AIzaSyDL2k9_deJ-3Cs0AVB57PqjHZjtHoEvvZo"
+genai.configure(api_key=GEMINI_API_KEY)
+st.success("✅ Gemini API key configured successfully.")
 
 # Load API key from .env
 
