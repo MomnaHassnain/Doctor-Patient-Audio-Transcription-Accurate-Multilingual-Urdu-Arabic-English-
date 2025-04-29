@@ -12,7 +12,7 @@ if GEMINI_API_KEY == "default_value_if_missing":
     st.error("❌ Gemini API key is missing!")
 else:
     genai.configure(api_key=GEMINI_API_KEY)
-
+st.write(f"GEMINI API KEY:{GEMINI_API_KEY}")
 
 # Load API key from .env
 
