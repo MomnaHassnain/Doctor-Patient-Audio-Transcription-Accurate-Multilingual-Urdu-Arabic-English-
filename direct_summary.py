@@ -1,25 +1,18 @@
 import os
 import streamlit as st
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 import whisper
 import google.generativeai as genai
 
-# ✅ Safe loading of Gemini API key
-try:
-    GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
-except KeyError:
-    st.error("❌ Gemini API key not found. Please add it to .streamlit/secrets.toml or Streamlit Cloud Secrets.")
-    st.stop()
-
-# ✅ Configure Gemini
-genai.configure(api_key=GEMINI_API_KEY)
-
-
-    
 # Load API key from .env
-#load_dotenv()
-#GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+load_dotenv()
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
+# Configure Gemini
+if not GEMINI_API_KEY:
+    st.error("❌ Gemini API key missing in .env file!")
+else:
+    genai.configure(api_key=GEMINI_API_KEY)
 
 # UI config
 st.set_page_config(page_title="Doctor-Patient Audio Assistant", layout="wide")
